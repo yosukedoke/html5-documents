@@ -1,0 +1,161 @@
+
+.marked {
+  display: none;
+}
+time.last-modified {
+  &:before {
+    content: '更新日:';
+  }
+}
+
+body {
+  @include box-sizing(border-box);
+  position: relative;
+
+  font-size: $font-size_BASE;
+  font-family: 'Open Sans', 'メイリオ', 'MSゴシック', sans-serif;
+  line-height: 1.2;
+  color: $color-text;
+  background: #f0f0f0;
+
+  -webkit-font-smoothing: antialiased;
+
+  & > time {
+    display: none;
+  }
+
+  & > header {
+    position: relative;
+
+    @include box-sizing(border-box);
+    padding: $gitter-y $gitter-x;
+    font-size: $font-size_L;
+
+    background: #000;
+    color: #fff;
+
+    h1 {
+      padding: $gitter-y;
+    }
+
+    time {
+      display: block;
+      vertical-align: middle;
+      color: #999;
+      font-size:50%;
+      text-align: right;
+      margin-top: -1em;
+    }
+  }
+
+  & > main {
+    @include box-sizing(border-box);
+
+    padding: $gitter;
+    padding-bottom: 30px;
+  }
+
+  & > footer {
+    @include box-sizing(border-box);
+    padding: $gitter-y $gitter-x;
+    font-size: $font-size_S;
+
+    background: rgba(#333, 0.7);
+    color: #ccc;
+
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+  }
+
+  & > main > article {
+    margin: $gitter*2 $gitter;
+    padding: $gitter;
+    min-height: 300px;
+
+    line-height: 1.8;
+
+    background: #fff;
+    @include box-shadow(2px 2px 6px rgba(0, 0, 0, 0.22));
+
+    @include box-sizing(border-box);
+    position: relative;
+    border-bottom:1px solid #fff;
+
+    header,
+    footer {
+      display: none;
+    }
+  }
+}
+
+@media print {
+  html, body {
+    height: 100%;
+  }
+  body {
+    font-size: $font-size_BASE*0.7;
+
+    & > header {
+      display: none;
+    }
+
+    & > main {
+      padding: 0;
+      height: 100%;
+    }
+    & > footer {
+      display: none;
+    }
+
+    & > main > article  {
+      margin: 0;
+      padding : 60px 5px 50px;
+
+      height: 100%;
+      @include box-shadow(none);
+
+      page-break-after: always;
+
+      &:last-child {
+        page-break-after: avoid;
+      }
+      header,
+      footer {
+        display: block;
+      }
+
+      header {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+
+        border:0;
+        padding:$gitter-y $gitter-y;
+
+        h1 {
+          padding-left:0;
+          font-weight:bold;
+          font-size: $font-size_L*0.78;
+        }
+        time {
+          display: block;
+          vertical-align: middle;
+          color: #999;
+          font-size:50%;
+          text-align: right;
+          margin-top: -0.8em;
+        }
+      }
+      footer {
+        position: absolute;
+        bottom:0;
+        left: 0;
+        width: 100%;
+        font-size:  $font-size_S;
+      }
+    }
+  }
+}
