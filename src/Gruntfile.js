@@ -41,19 +41,7 @@ module.exports = function(grunt) {
         expand: true,
         cwd: 'tmp-css/',
         src: ['**/*.css', '**/!*.min.css'],
-        dest: '../dist/css/'
-      }
-    },
-    uglify: {
-      options: {
-      },
-      all: {
-        files: [{
-          expand: true,
-          cwd: 'js',
-          src: '**/*.js',
-          dest: '../dist/js'
-        }]
+        dest: '../dest/css/'
       }
     },
 
@@ -69,6 +57,19 @@ module.exports = function(grunt) {
 
       },
       nothing: {}
+    },
+
+    uglify: {
+      options: {
+      },
+      all: {
+        files: [{
+          expand: true,
+          cwd: 'js',
+          src: '**/*.js',
+          dest: '../dest/js'
+        }]
+      }
     },
 
     // watch or esteWatch好きな方を使ってください
