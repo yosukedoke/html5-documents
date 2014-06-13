@@ -14,7 +14,9 @@
       '</footer>';
 
   function init() {
-    replaceMarkdownText();
+    if(marked && typeof(marked) === 'function') {
+      replaceMarkdownText();
+    }
 
     var time   = $(doc).find('body > time').text();
     var title  = $(doc).find('head > title').text();
