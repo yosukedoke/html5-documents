@@ -8,10 +8,10 @@ html5-Documents
 HTMLの`main > articl`要素を1ページとして扱います
 
 - &lt;body>
-    - &ltmain>
-        - &ltarticle>
+    - &lt;main>
+        - &lt;article>
             - 内容
-        - &ltarticle class="marked">
+        - &lt;article class="marked">
             - <!-- Markdown -->
 
 ## できること
