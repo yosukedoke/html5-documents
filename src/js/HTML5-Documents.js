@@ -38,17 +38,8 @@
       var $this = $(this);
       var data;
 
-      var node = $this.get(0).firstChild;
-
-      while(node) {
-        if(node.nodeType === 8) {
-          data = node.nodeValue;
-          break;
-        }
-        node = node.nextSibling;
-      }
-
-      $this.empty().append(marked(data)).removeClass('marked');
+      var text = $this.text();
+      $this.empty().append(marked(text)).removeClass('marked');
     });
   }
 
