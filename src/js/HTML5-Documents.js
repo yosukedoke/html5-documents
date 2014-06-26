@@ -35,8 +35,7 @@
   function replaceMarkdownText() {
     // TODO: highlight.js 使ってみる https://github.com/isagalaev/highlight.js
     $(doc).find('.marked').each(function() {
-      var $this = $(this);
-      var text = $this.html();
+      var text = $(this).html();
       $this.empty().append(marked(text)).removeClass('marked');
     });
   }
