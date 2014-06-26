@@ -28,6 +28,29 @@ main {
     }
   }
 
+  @media print {
+    &     a {
+       text-decoration: none;
+
+       &:link,
+       &:visited,
+       &:hover,
+       &:hover:visited {
+         color: $color-text;
+       }
+
+       &:after {
+         content: ' [' attr(href) ']';
+       }
+     }
+  }
+
+  article.index {
+    a:after {
+      content:'';
+    }
+  }
+
   h1 {
     font-size: $font-size_L;
     padding: $gitter-y $gitter-x;

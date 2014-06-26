@@ -67,25 +67,43 @@ body {
     bottom: 0;
     width: 100%;
     z-index: 1;
+
+    address {
+      text-align: center;
+    }
+  }
+}
+
+main > article {
+  margin: $gitter*2 $gitter;
+  padding: $gitter;
+  min-height: 300px;
+
+  line-height: 1.8;
+
+  background: #fff;
+  @include box-shadow(2px 2px 6px rgba(0, 0, 0, 0.22));
+
+  @include box-sizing(border-box);
+  position: relative;
+  border-bottom:1px solid #fff;
+
+  header,
+  footer {
+    display: none;
   }
 
-  & > main > article {
-    margin: $gitter*2 $gitter;
-    padding: $gitter;
-    min-height: 300px;
 
-    line-height: 1.8;
+  &.cover {
+    h1 {
+       margin: 30% 0 $gitter-y;
+    }
+    display: none;
+  }
 
-    background: #fff;
-    @include box-shadow(2px 2px 6px rgba(0, 0, 0, 0.22));
-
-    @include box-sizing(border-box);
-    position: relative;
-    border-bottom:1px solid #fff;
-
-    header,
-    footer {
-      display: none;
+  &.index {
+    ol {
+      margin: $gitter-y * 3 0;
     }
   }
 }
@@ -108,54 +126,70 @@ body {
     & > footer {
       display: none;
     }
+  }
 
-    & > main > article  {
-      margin: 0;
-      padding : 60px 5px 50px;
+  main > article  {
+    margin: 0;
+    padding : 60px 5px 50px;
 
-      height: 100%;
-      @include box-shadow(none);
+    height: 100%;
+    @include box-shadow(none);
 
-      page-break-after: always;
+    page-break-after: left;
 
-      &:last-child {
-        page-break-after: avoid;
+    &:last-child {
+      page-break-after: avoid;
+    }
+    header,
+    footer {
+      display: block;
+    }
+
+    header {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+
+      border:0;
+      padding:$gitter-y $gitter-y;
+
+      h1 {
+        padding-left:0;
+        font-weight:bold;
+        font-size: $font-size_L*0.78;
       }
-      header,
-      footer {
+      time {
         display: block;
+        vertical-align: middle;
+        color: #999;
+        font-size:50%;
+        text-align: right;
+        margin-top: -0.8em;
       }
+    }
+    footer {
+      position: absolute;
+      bottom:0;
+      left: 0;
+      width: 100%;
+      font-size:  $font-size_S;
 
-      header {
-        position: absolute;
-        left: 0;
-        top: 0;
+      p.nombre {
+        position:absolute;
+        top:0;
         width: 100%;
+        @include box-sizing(border-box);
+        text-align: right;
 
-        border:0;
-        padding:$gitter-y $gitter-y;
-
-        h1 {
-          padding-left:0;
-          font-weight:bold;
-          font-size: $font-size_L*0.78;
-        }
-        time {
-          display: block;
-          vertical-align: middle;
-          color: #999;
-          font-size:50%;
-          text-align: right;
-          margin-top: -0.8em;
+        &:before {
+          content: 'p.';
         }
       }
-      footer {
-        position: absolute;
-        bottom:0;
-        left: 0;
-        width: 100%;
-        font-size:  $font-size_S;
-      }
+    }
+
+    &.cover {
+      display: block;
     }
   }
 }
