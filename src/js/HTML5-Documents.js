@@ -36,10 +36,9 @@
     // TODO: highlight.js 使ってみる https://github.com/isagalaev/highlight.js
     $(doc).find('.marked').each(function() {
       var $this = $(this);
-      var data;
-
-      var text = $this.text();
-      $this.empty().append(marked(text)).removeClass('marked');
+      $this.empty().append(
+          marked($this.html())
+      ).removeClass('marked');
     });
   }
 
