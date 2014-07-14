@@ -60,7 +60,7 @@
     $('main > article').each(function(i) {
       var $this = $(this);
       var title = $this.find('h1').text();
-      var id = $this.find('h1').attr('id') || 'page' + i;
+      var id = /* $this.find('h1').attr('id') || */'page' + i;
       index.push({
         title : title,
         id: id
