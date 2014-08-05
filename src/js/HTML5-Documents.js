@@ -1,4 +1,17 @@
-(function (window, $, EJS, marked, undefined) {
+(function(root, factory) {
+  if (typeof exports !== 'undefined') {
+    var $ = require('jquery');
+    require('ejs');
+    var marked = require('marked');
+    module.exports = factory(root, $, EJS, marked);
+  } else if (typeof define === 'function' && define.amd) {
+    define([ 'jquery', 'ejs', 'marked'], function($, EJS, marked) {
+      root.HTML5Documents = factory(root, $, EJS, marked);
+    });
+  } else {
+    root.HTML5Documents = factory(root, (root.jQuery || root.Zepto || root.ender || root.$), root.EJS, root.marked);
+  }
+})(this, function (root, $, EJS, marked, undefined) {
   'use strict';
 
   var doc = window.document;
@@ -92,5 +105,7 @@
     });
   }
 
-  $(init);
-})(this, jQuery, EJS, marked);
+  return function (){
+    $(init);
+  };
+});
