@@ -71,14 +71,18 @@
 
     var index = [];
     $('main > article').each(function(i) {
-      var $this = $(this);
-      var title = $this.find('h1').text();
-      var id = /* $this.find('h1').attr('id') || */'page' + i;
+      var id = /* $this.find('h1').attr('id') || */'page' + i,
+          title = 'ページ' + (i+1);
+
+      var $h1 = $($(this).find('h1').get(0));
+
+      $h1.attr({'id': id});
+      if($h1.length) title = $h1.text();
+
       index.push({
         title : title,
         id: id
       });
-      $this.find('h1').attr({'id': id});
     });
 
     var indexPage = new EJS({text:TMPL_INDEX_PAGE}).render({title: title, time: time, author: author, index: index});
