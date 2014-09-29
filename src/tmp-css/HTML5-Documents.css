@@ -1,0 +1,297 @@
+@charset "UTF-8";
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+.marked {
+  display: none;
+}
+
+time.last-modified:before {
+  content: '更新日:';
+}
+
+body {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  font-size: 14px;
+  font-family: 'Open Sans', 'メイリオ', 'MSゴシック', sans-serif;
+  line-height: 1.2;
+  color: #030303;
+  background: #f0f0f0;
+  -webkit-font-smoothing: antialiased;
+}
+body > time {
+  display: none;
+}
+body > header {
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 6px 8px;
+  font-size: 150%;
+  background: #000;
+  color: #fff;
+}
+body > header h1 {
+  padding: 6px;
+}
+body > header time {
+  display: block;
+  vertical-align: middle;
+  color: #999;
+  font-size: 50%;
+  text-align: right;
+  margin-top: -1em;
+}
+body > main {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 8px;
+  padding-bottom: 30px;
+}
+body > footer {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 6px 8px;
+  font-size: 70%;
+  background: rgba(51, 51, 51, 0.7);
+  color: #ccc;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+}
+body > footer address {
+  text-align: center;
+}
+
+main > article {
+  margin: 16px 8px;
+  padding: 8px;
+  min-height: 300px;
+  line-height: 1.8;
+  background: #fff;
+  -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.22);
+  -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.22);
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.22);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  border-bottom: 1px solid #fff;
+}
+main > article header,
+main > article footer {
+  display: none;
+}
+main > article.cover {
+  display: none;
+}
+main > article.cover h1 {
+  margin: 30% 0 6px;
+}
+main > article.index ol {
+  margin: 18px 0;
+}
+
+@media print {
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    font-size: 9.8px;
+  }
+  body > header {
+    display: none;
+  }
+  body > main {
+    padding: 0;
+    height: 100%;
+  }
+  body > footer {
+    display: none;
+  }
+
+  main > article {
+    margin: 0;
+    padding: 60px 5px 50px;
+    min-height: 100%;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    page-break-after: left;
+  }
+  main > article:last-child {
+    page-break-after: avoid;
+  }
+  main > article header,
+  main > article footer {
+    display: block;
+  }
+  main > article header {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    border: 0;
+    padding: 6px 6px;
+  }
+  main > article header h1 {
+    padding-left: 0;
+    font-weight: bold;
+    font-size: 117%;
+  }
+  main > article header time {
+    display: block;
+    vertical-align: middle;
+    color: #999;
+    font-size: 50%;
+    text-align: right;
+    margin-top: -0.8em;
+  }
+  main > article footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-size: 70%;
+  }
+  main > article footer p.nombre {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: right;
+  }
+  main > article footer p.nombre:before {
+    content: 'p.';
+  }
+  main > article.cover {
+    display: block;
+  }
+}
+main a {
+  color: #2c4cff;
+  -webkit-transition: 0.22s ease-out;
+  -moz-transition: 0.22s ease-out;
+  -o-transition: 0.22s ease-out;
+  transition: 0.22s ease-out;
+}
+main a:visited {
+  color: #2c4cff;
+}
+main a:hover, main a:hover:visited {
+  color: #100883;
+}
+@media print {
+  main a {
+    text-decoration: none;
+  }
+  main a:link, main a:visited, main a:hover, main a:hover:visited {
+    color: #030303;
+  }
+  main a:after {
+    content: " [" attr(href) "]";
+  }
+}
+main article.index a:after {
+  content: '';
+}
+main h1 {
+  font-size: 150%;
+  padding: 6px 8px;
+  border-bottom: 3px solid #269826;
+  margin-bottom: 8px;
+}
+main h2, main h3, main h4, main h5, main h6 {
+  padding: 6px 8px;
+  margin-bottom: 8px;
+}
+main h2, main h3, main h4 {
+  border-bottom: 1px solid #269826;
+}
+main h5, main h6 {
+  font-size: 70%;
+  font-weight: bold;
+  background: #f0f0f0;
+}
+main hr {
+  border: 0;
+  border-bottom: 1px dashed #269826;
+}
+main ul {
+  list-style: square outside;
+}
+main ol {
+  list-style: decimal outside;
+}
+main li {
+  margin-left: 30px;
+}
+main pre {
+  border: #CCC 1px solid;
+  background: #f6f6f6;
+  color: #0f141f;
+  padding: 8px;
+}
